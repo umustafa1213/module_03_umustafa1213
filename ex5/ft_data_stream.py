@@ -1,6 +1,7 @@
 import random
 import typing
 
+
 def gen_event() -> typing.Generator[tuple, None, None]:
     player_names = ["Alice", "Tom", "Umar", "Grace", "Anton", "Robute Guill",
                     "Himari", "Jorge", "Skeptor", "Silla", "Lara", "Tiberos",
@@ -19,12 +20,31 @@ def gen_event() -> typing.Generator[tuple, None, None]:
         yield (random.choice(player_names), random.choice(events))
 
 
+def consume_event(random_list: list) -> typing.Generator[tuple, None, None]:
+    while len(random_list) > 0:
+        index = random.randint(0, len(random_list) - 1)
+
+        event = random_list[index]
+        del random_list[index]
+
+        yield event
+
+
 def main() -> None:
     event_gen_obj = gen_event()
+    random_list: list = []
     for i in range(0, 1000):
         random_event = next(event_gen_obj)
         print(f"Event {i}: Player {random_event[0]} "
               f"did action {random_event[1]}")
+    for i in range(0, 10):
+        random_list = random_list + [next(event_gen_obj)]
+    print(f"Built list of 10 events: {random_list}")
+    consuming_obj = consume_event(random_list)
+    for i in range(0, len(random_list)):
+        discarded_event = next(consuming_obj)
+        print(f"Got event from list: {discarded_event}")
+        print(f"Remains in list: {random_list}")
     return
 
 
