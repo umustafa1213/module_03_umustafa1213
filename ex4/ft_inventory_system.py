@@ -62,7 +62,7 @@ def show_item_stats(inventory: dict) -> None:
             pass
     print(f"Item most abundant: {highest_key} with quantity "
           f"{inventory[highest_key]}")
-    print(f"Iten least abundant: {lowest_key} with quantity "
+    print(f"Item least abundant: {lowest_key} with quantity "
           f"{inventory[lowest_key]}")
 
 
