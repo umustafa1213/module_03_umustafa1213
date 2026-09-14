@@ -85,8 +85,8 @@ def ft_inventory_system() -> None:
         else:
             inventory.update({item: value})
         print(f"Updated inventory: {inventory}")
-    except Exception:
-        print("Error - Something went wrong. Couldn't update inventory")
+    except Exception as e:
+        print(f"Error - {e}")
         print(f"Current Inventory: {inventory}")
 
     return
