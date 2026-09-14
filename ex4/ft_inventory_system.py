@@ -54,10 +54,12 @@ def show_item_stats(inventory: dict) -> None:
     for item in item_list:
         if inventory[item] > highest_value:
             highest_key = item
+            highest_value = inventory[item]
         else:
             pass
         if inventory[item] < lowest_value:
             lowest_key = item
+            lowest_value = inventory[item]
         else:
             pass
     print(f"Item most abundant: {highest_key} with quantity "
