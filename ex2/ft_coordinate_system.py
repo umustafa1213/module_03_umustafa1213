@@ -49,7 +49,7 @@ def get_player_pos() -> None:
                                "floats in format 'x,y,z': ").split(",")
     first_coord = make_tuple(processed_list)
     print(f"Got a first tuple: {first_coord}")
-    print(f"It includes: X={first_coord[0]:.1f}, Y={first_coord[1]:.1f}"
+    print(f"It includes: X={first_coord[0]:.1f}, Y={first_coord[1]:.1f},"
           f" Z={first_coord[2]:.1f}")
     print(f"Distance to center: "
           f"{distance_two_set((0, 0, 0), first_coord):.4f}")
