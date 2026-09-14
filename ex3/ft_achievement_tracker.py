@@ -25,7 +25,7 @@ class Player():
 
 def gen_achievement_set(all_ach: list) -> set:
     player_set: set = set()
-    for i in range(random.randint(4, 13)):
+    for _ in range(random.randint(4, 13)):
         player_set = player_set.union({(random.choice(all_ach))})
     return player_set
 
